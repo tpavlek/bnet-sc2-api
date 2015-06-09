@@ -1,6 +1,6 @@
 <?php
 
-namespace Depotwarehouse\BattleNetSC2Api\Entity;
+namespace Depotwarehouse\BattleNetSC2Api\Entity\Grandmaster;
 
 class Player
 {

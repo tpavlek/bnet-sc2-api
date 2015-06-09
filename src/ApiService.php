@@ -2,9 +2,8 @@
 
 namespace Depotwarehouse\BattleNetSC2Api;
 
-use Depotwarehouse\BattleNetSC2Api\Entity\Player;
+use Depotwarehouse\BattleNetSC2Api\Entity\Grandmaster\Player;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
 
 class ApiService
 {
