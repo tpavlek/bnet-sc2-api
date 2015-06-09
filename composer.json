@@ -1,0 +1,18 @@
+{
+    "name": "depotwarehouse/bnet-sc2-api",
+    "description": "An API wrapper for the SC2 API on Battle.net",
+    "authors": [
+        {
+            "name": "Troy Pavlek",
+            "email": "troy@tpavlek.me"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Depotwarehouse\\BattleNetSC2Api\\": "src/"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^6.0"
+    }
+}
