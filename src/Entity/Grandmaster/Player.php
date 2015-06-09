@@ -14,6 +14,126 @@ class Player
     protected $region;
 
     protected $joinTimestamp;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRealm()
+    {
+        return $this->realm;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDisplayName()
+    {
+        return $this->displayName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getClanName()
+    {
+        return $this->clanName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getClanTag()
+    {
+        return $this->clanTag;
+    }
+
+    /**
+     * @return string
+     */
+    public function getProfileUrl()
+    {
+        return $this->profile_url;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRegion()
+    {
+        return $this->region;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getJoinTimestamp()
+    {
+        return $this->joinTimestamp;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPoints()
+    {
+        return $this->points;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWins()
+    {
+        return $this->wins;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLosses()
+    {
+        return $this->losses;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHighestRank()
+    {
+        return $this->highestRank;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPreviousRank()
+    {
+        return $this->previousRank;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCurrentRank()
+    {
+        return $this->currentRank;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRace()
+    {
+        return $this->race;
+    }
     protected $points;
     protected $wins;
     protected $losses;
