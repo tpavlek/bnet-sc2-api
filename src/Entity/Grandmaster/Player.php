@@ -163,7 +163,7 @@ class Player
         $this->losses = $attributes['losses'];
         $this->highestRank = $attributes['highestRank'];
         $this->previousRank = $attributes['previousRank'];
-        $this->race = $attributes['favoriteRaceP1'];
+        $this->race = (isset($attributes['favoriteRaceP1'])) ? $attributes['favoriteRaceP1'] : "RANDOM";
     }
 
     private function constructProfileUrl($path, $region)
