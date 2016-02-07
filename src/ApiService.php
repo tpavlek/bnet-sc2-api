@@ -28,7 +28,7 @@ class ApiService
 
     private function retrieveGrandmasterInformationFromApi()
     {
-        $request = new Request('GET', 'ladder/190001?' . http_build_query([ 'locale' => $this->locale, 'apiKey' => $this->apiKey ]));
+        $request = new Request('GET', 'ladder/192949?' . http_build_query([ 'locale' => $this->locale, 'apiKey' => $this->apiKey ]));
         $response = $this->httpClient->send($request);
 
         return json_decode($response->getBody()->getContents());
