@@ -38,6 +38,11 @@ class ApiService
         $this->region = $region;
     }
 
+    public function currentRegion()
+    {
+        return $this->region;
+    }
+
     private function retrieveGrandmasterInformationFromApi()
     {
         $request = new Request('GET', "ladder/{$this->gmLadderId()}?" . http_build_query([ 'locale' => $this->locale, 'apiKey' => $this->apiKey ]));
