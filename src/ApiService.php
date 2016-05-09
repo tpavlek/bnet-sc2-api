@@ -74,6 +74,5 @@ class ApiService
         }
 
         return $players;
-
     }
 }
