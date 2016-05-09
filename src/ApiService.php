@@ -9,6 +9,9 @@ use GuzzleHttp\Psr7\Request;
 class ApiService
 {
 
+    const NA_GM_LADDER_ID = "194757";
+    const EU_GM_LADDER_ID = "181958";
+
     protected $httpClient;
 
     private $apiKey;
@@ -19,19 +22,38 @@ class ApiService
     public function __construct($api_key, $region, $locale = "en_US")
     {
         $this->apiKey = $api_key;
-        $this->region = $region;
+        $this->setRegion($region);
         $this->locale = $locale;
         $this->httpClient = new Client([
             'base_uri' => "https://{$region}.api.battle.net/sc2/"
         ]);
     }
 
+    private function setRegion($region)
+    {
+        if ($region != Region::America && $region != Region::Europe) {
+            throw new \InvalidArgumentException("Unable to use region $region");
+        }
+
+        $this->region = $region;
+    }
+
     private function retrieveGrandmasterInformationFromApi()
     {
-        $request = new Request('GET', 'ladder/194757?' . http_build_query([ 'locale' => $this->locale, 'apiKey' => $this->apiKey ]));
+        $request = new Request('GET', "ladder/{$this->gmLadderId()}?" . http_build_query([ 'locale' => $this->locale, 'apiKey' => $this->apiKey ]));
         $response = $this->httpClient->send($request);
 
         return json_decode($response->getBody()->getContents());
+    }
+
+    private function gmLadderId()
+    {
+        $map = [
+            Region::America => self::NA_GM_LADDER_ID,
+            Region::Europe => self::EU_GM_LADDER_ID
+        ];
+
+        return $map[$this->region];
     }
 
     public function getGrandmasterInformation()

@@ -6,5 +6,6 @@ class Region
 {
 
     const America = "us";
+    const Europe = "eu";
 
 }

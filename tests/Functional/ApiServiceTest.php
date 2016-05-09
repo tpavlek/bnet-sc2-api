@@ -3,6 +3,7 @@
 namespace Depotwarehouse\BattleNetSC2Api\Tests\Functional;
 
 use Depotwarehouse\BattleNetSC2Api\ApiService;
+use Depotwarehouse\BattleNetSC2Api\Region;
 use GuzzleHttp\Exception\ClientException;
 
 class ApiServiceTest extends \PHPUnit_Framework_TestCase
@@ -21,9 +22,9 @@ class ApiServiceTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function it_retrieves_ladder_information()
+    public function it_retrieves_north_american_ladder_information()
     {
-        $apiService = new ApiService(getenv('BNET_API_KEY'), 'us');
+        $apiService = new ApiService(getenv('BNET_API_KEY'), Region::America);
         $reflection = new \ReflectionClass($apiService);
         $method = $reflection->getMethod('retrieveGrandmasterInformationFromApi');
         $method->setAccessible(true);
@@ -33,8 +34,23 @@ class ApiServiceTest extends \PHPUnit_Framework_TestCase
         } catch (ClientException $exception) {
             $this->fail("API returned an error with: " . (string)$exception->getResponse()->getBody());
         }
+    }
 
+    /**
+     * @test
+     */
+    public function it_retrieves_european_ladder_information()
+    {
+        $apiService = new ApiService(getenv('BNET_API_KEY'), Region::Europe);
+        $reflection = new \ReflectionClass($apiService);
+        $method = $reflection->getMethod('retrieveGrandmasterInformationFromApi');
+        $method->setAccessible(true);
+        try {
+            $result = $method->invoke($apiService);
+            $this->assertObjectHasAttribute("ladderMembers", $result);
 
-
+        } catch (ClientException $exception) {
+            $this->fail("API returned an error with: " . (string)$exception->getResponse()->getBody());
+        }
     }
 }
