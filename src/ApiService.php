@@ -9,8 +9,8 @@ use GuzzleHttp\Psr7\Request;
 class ApiService
 {
 
-    const NA_GM_LADDER_ID = "194757";
-    const EU_GM_LADDER_ID = "181958";
+    const NA_GM_LADDER_ID = "196647";
+    const EU_GM_LADDER_ID = "183962";
 
     protected $httpClient;
 
